@@ -2,7 +2,7 @@
 cask "nllint" do
   desc "Check newlines at the end of files"
   homepage "https://github.com/suzuki-shunsuke/nllint"
-  version "0.1.1"
+  version "0.1.2"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,23 +12,29 @@ cask "nllint" do
 
   on_macos do
     on_intel do
-      url "https://github.com/suzuki-shunsuke/nllint/releases/download/v0.1.1/nllint_darwin_amd64.tar.gz"
-      sha256 "1092e6afdb83f381f17d72ad74ee572c2956aeffb0c80cdb3d94cffc41f74467"
+      url "https://github.com/suzuki-shunsuke/nllint/releases/download/v0.1.2/nllint_darwin_amd64.tar.gz"
+      sha256 "ead8931e0f048904e9d85e45e90f4e3bdf13b5d2ee5f2bccc35782bc3ec4cd8f"
     end
     on_arm do
-      url "https://github.com/suzuki-shunsuke/nllint/releases/download/v0.1.1/nllint_darwin_arm64.tar.gz"
-      sha256 "f7a4e2600cd7341f4c1dc62e29c7d6144a56e59ccff33a944fc4530666c4daab"
+      url "https://github.com/suzuki-shunsuke/nllint/releases/download/v0.1.2/nllint_darwin_arm64.tar.gz"
+      sha256 "0db73e6dc366fbb1eabaae3d65c9c1e2f8b8dd09d9022d436d46120dbd5b96fa"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/suzuki-shunsuke/nllint/releases/download/v0.1.1/nllint_linux_amd64.tar.gz"
-      sha256 "6cd530aa22e2ce46014c1bf29878b0b7c1b417d0fbd52f38860ceaca6dc794d1"
+      url "https://github.com/suzuki-shunsuke/nllint/releases/download/v0.1.2/nllint_linux_amd64.tar.gz"
+      sha256 "f903f622df9c89a694bec4218ac2957d1e579627b662df92e53ff725a9597e5d"
     end
     on_arm do
-      url "https://github.com/suzuki-shunsuke/nllint/releases/download/v0.1.1/nllint_linux_arm64.tar.gz"
-      sha256 "c6cee8098af1055e9d16c2b6bd070e5a1898e513a554db6d2cb2493b061c7133"
+      url "https://github.com/suzuki-shunsuke/nllint/releases/download/v0.1.2/nllint_linux_arm64.tar.gz"
+      sha256 "fe2f89e5b03a1ebf6079071ca5e2836350735a6b1000c975ae27525c4c077488"
+    end
+  end
+
+  postflight do
+    if system_command("/usr/bin/xattr", args: ["-h"]).exit_status == 0
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/nllint"]
     end
   end
 
