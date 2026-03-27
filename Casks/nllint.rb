@@ -3,7 +3,7 @@ cask "nllint" do
   name "nllint"
   desc "Check newlines at the end of files"
   homepage "https://github.com/suzuki-shunsuke/nllint"
-  version "1.0.0"
+  version "1.1.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,22 @@ cask "nllint" do
   on_macos do
     on_intel do
       url "https://github.com/suzuki-shunsuke/nllint/releases/download/v#{version}/nllint_darwin_amd64.tar.gz"
-      sha256 "5733518d44f7eae2b4b16b0ea6617597c89b2eb084a4e6101a1dc03716266b6c"
+      sha256 "25d719c1b23d37f748b6453a2dbffc3e9c998731af1e8114956a4aeba413760c"
     end
     on_arm do
       url "https://github.com/suzuki-shunsuke/nllint/releases/download/v#{version}/nllint_darwin_arm64.tar.gz"
-      sha256 "e854ee0aa0dd83273d3b68e335bc025fda721a32a3373091dfdec3a582d1ec41"
+      sha256 "b17088adaa6d29cd59cfe3142cfbb082874f52039d39beb3de0f4209895e44f7"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/suzuki-shunsuke/nllint/releases/download/v#{version}/nllint_linux_amd64.tar.gz"
-      sha256 "f54ec24ce1c344b611f6d80155396101d38e72b7f88e2ca8b9bfadc16307ae35"
+      sha256 "4adb11d727be9ea1220a6a63b2413edbafec1e86c58bffe772043afc500f1fb9"
     end
     on_arm do
       url "https://github.com/suzuki-shunsuke/nllint/releases/download/v#{version}/nllint_linux_arm64.tar.gz"
-      sha256 "ec8d94494c70f4285a39375f385a4e52f945c597a3a5361adf3dd9f1c8263ce4"
+      sha256 "f7ef1b230e32943aa128c2152a477c1229592e973c3399db4eab4e123660464b"
     end
   end
 
